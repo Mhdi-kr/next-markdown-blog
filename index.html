@@ -5,186 +5,79 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/98.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: rgba(242, 242, 247, 1);
+                color: rgba(28, 28, 30, 1);
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: rgba(28, 28, 30, .9);
+                color: rgba(242, 242, 247, 1);
+            }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+    </style>
     <title>Mahdi Karimi</title>
 </head>
 
-<body style="background-color: #008081;">
-    <main id="app">
-        <div class="col">
-            <div class="window" style="width: 300px" id="about">
-                <div class="title-bar">
-                    <div class="title-bar-text">About me</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <p>My name is <strong>Mahdi Karimi</strong> and I study computer engineering at Nooshirvani
-                        Institute of
-                        technology.</p>
-                    <p>I'm interested in front-end web development and have experience working with HTML, CSS libraries
-                        such
-                        tailwindCSS, bootstrap and bulma, VueJs and NuxtJs.</p>
-                    <p>I love building computers, tinkering around with open-source hardware like Arduino as well as
-                        contributing to
-                        open-source
-                        software.</p>
-                    <button disabled>Download full Curriculum Vitae</button>
+<body>
+    <div class="p-8 md:p-16">
+        <div class="left-side lg:w-1/2 title">
+            <div class="item">
+                <h1 class="text-2xl md:text-4xl">👋 I'm <strong>Mahdi Karimi</strong></h1>
+                <p class="mt-4 text-sm md:text-lg">
+                    Welcome to my website!
+                </p>
+            </div>
+            <div class="item mt-8">
+                <h1 class="text-xl md:text-3xl">📚 I am a full-time learner</h1>
+                <p class="mt-4 text-sm md:text-lg">
+                    I study computer engineering at Nooshirvani Institute of technology. I love building computers,
+                    tinkering around with
+                    open-source hardware like Arduino as well as contributing to open-source software.
+                </p>
+            </div>
+            <div class="item mt-8">
+                <h1 class="text-xl md:text-3xl">💻 I do web developement</h1>
+                <p class="mt-4 text-sm md:text-lg">
+                    I'm highly interested in front-end web development and have experience working with HTML5, CSS3
+                    libraries such tailwindCSS,
+                    bootstrap and bulma, VueJs and NuxtJs. I am also familiar with RESTful API design, databases, nginx
+                    and other back-end concepts.
+                </p>
+            </div>
+            <div class="item mt-8">
+                <h1 class="text-xl md:text-3xl">✏️ I write articles and tutorials</h1>
+                <p class="mt-4 text-sm md:text-lg">
+                    I enjoy writing tutorials and articles to help others learn what I know.
+                </p>
+            </div>
+            <div class="item mt-8">
+                <h1 class="text-xl md:text-3xl">📞 Feel free to connect!</h1>
+                <div class="flex flex-col mt-4 text-sm md:text-lg">
+                    <span>Mhdi_kr@outlook.com</span>
+                    <span>Instagram</span>
+                    <span>Linkedin</span>
+                    <span>Github</span>
                 </div>
             </div>
-            <div class="window" style="width: 300px" id="MediaPlayer">
-                <div class="title-bar">
-                    <div class="title-bar-text">Hello world!</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body" style="margin: 0;">
-                    <img src="giphy.gif" style="width: 100%;" alt="">
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="window" style="width: 300px" id="email">
-                <div class="title-bar">
-                    <div class="title-bar-text">Projects</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <ul>
-                        <li>Robio.ir | My web development team</li>
-                        <li>Emergency Storage Management System SPA</li>
-                        <li>Curli.ir | cut your links!</li>
-                        <!-- <li>RedisGUI (under development)</li> -->
-                        <li>Themer Studio (under development)</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="window" style="width: 300px" id="email">
-                <div class="title-bar">
-                    <div class="title-bar-text">mailer.exe</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Minimize"></button>
-                        <button aria-label="Maximize"></button>
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <p>Feel free to ask questions or send bussinesss inqueries via email using this window </p>
-                    <div class="field-row-stacked" style="width: 280px">
-                        <input id="text18" type="text" placeholder="Message subject" v-model="email.subject" />
-                    </div>
-                    <div class="field-row-stacked" style="width: 280px; margin-bottom: 10px;">
-                        <textarea id="text20" rows="8" placeholder="Message ... " v-model="email.text"></textarea>
-                    </div>
-                    <button><a :href="mailto">Send Email</a></button>
-                </div>
-            </div>
-            <div class="window" style="width: 300px" id="contactInfo">
-                <div class="title-bar">
-                    <div class="title-bar-text">Contact information</div>
-                    <div class="title-bar-controls">
-                        <button aria-label="Close"></button>
-                    </div>
-                </div>
-                <div class="window-body">
-                    <p style="display:flex;align-items:center"><img
-                            src="https://win98icons.alexmeub.com/icons/png/envelope_closed-1.png" alt=""
-                            style="margin-right: 5px;">
-                        Mhdi_kr@outlook.com
-                    </p>
-                    <p style="display:flex;align-items:center"><img
-                            src="https://win98icons.alexmeub.com/icons/png/envelope_closed-1.png" alt=""
-                            style="margin-right: 5px;">
-                        <a href="https://t.me/Mhdi_kr_99">Telegram</a>
-                    </p>
-                    <p style="display:flex;align-items:center"><img
-                            src="https://win98icons.alexmeub.com/icons/png/envelope_closed-1.png" alt=""
-                            style="margin-right: 5px;">
-                        <a href="https://github.com/Mhdi-kr">Github</a>
-                    </p>
-                    <p style="display:flex;align-items:center"><img
-                            src="https://win98icons.alexmeub.com/icons/png/envelope_closed-1.png" alt=""
-                            style="margin-right: 5px;">
-                        <a href="https://www.linkedin.com/in/mhdi-kr/">Linkedin</a>
-                    </p>
-
-                </div>
+            <div class="about mt-8">
+                <span class="text-xs md:text-base">2021 - open-source hosted with ❤️ on github</span>
             </div>
         </div>
-
-    </main>
-    <style>
-        body {
-            line-height: 1.5em !important;
-        }
-
-        .window {
-            margin: 5px;
-        }
-
-        @media only screen and (max-width: 600px) {
-            #app {
-                display: flex;
-                justify-content: center;
-                align-items: center !important;
-                flex-direction: column !important;
-            }
-        }
-
-        #app {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            flex-direction: row;
-        }
-
-        .col {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-
-        p {
-            font-family: 'tahoma' !important;
-            font-size: 1.1em;
-        }
-
-        ul {
-            padding-left: 2em;
-            font-family: 'tahoma' !important;
-            font-size: 1.1em;
-        }
-    </style>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script>
-        var app = new Vue({
-            el: '#app',
-            data: () => ({
-                email: {
-                    subject: '',
-                    text: ''
-                },
-            }),
-            computed: {
-                mailto: {
-                    get: function () {
-                        return `mailto:mhdi_kr@outlook.com?subject=${this.email.subject}&body=${this.email.text}`
-                    }
-                },
-            }
-        })
-    </script>
+    </div>
 </body>
 
 </html>

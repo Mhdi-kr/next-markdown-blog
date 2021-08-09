@@ -1,0 +1,41 @@
+.text-dancing-script {
+  font-family: 'Dancing Script', cursive;
+}
+
+.text-section-title {
+  font-family: 'Georama', sans-serif;
+}
+
+.global-font {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.my-name {
+  transition: border 256ms ease;
+  background-color: white;
+  cursor: pointer;
+  padding: 2rem;
+}
+
+.lines {
+  transition: border 256ms ease;
+  width: 50vw;
+  height: 50vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.my-name:hover+.lines {
+  border-right: 1.5px dashed #7500A4;
+  border-bottom: 1.5px dashed #7500A4;
+}
+
+.my-name:hover {
+  border: 1.5px dashed #7500A4;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

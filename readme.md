@@ -1,43 +1,34 @@
-# Tailwind CSS Boilerplate
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8dbea3dc-da9d-4524-ba9f-aad17785f152/deploy-status)](https://app.netlify.com/sites/tailwind-css-boilerplate/deploys)
+## Getting Started
 
-Setting up a tailwind css based project needs to install the tailwindcss npm package, postcss and autoprefixer - it also requires to configure a tailwind.config.js as well as postcss.config.js (optional, if you're planning to use postcss) and then configure those files manually.
+First, run the development server:
 
-And finally for building the production code with tree-shaking (removing unused css from your project and keeping only what is required) you need to configure the purge settings in your tailwind configuration. For someone new to tailwind and for others who regularly use tailwind in their projects, these are boring jobs and you have to do it repeatedly for every project (or learn how to do it if someone is just starting with tailwind)
-
-So this boilerplate has all the configuration to save your time from this boring configurtion tasks (and from gogling many things)
-
-Use this boilerplate as the starting point for your JAMstack + **Tailwind CSS** based projects.
-
-### start
-```sh
-git clone this_repository
-cd this_directory
-yarn
+```bash
+npm run dev
+# or
 yarn dev
 ```
 
-### build
-```sh
-yarn build
-```
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-then grab everything from the dist folder
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-### change server port
-Just change the port number in `vite.config.js` file
-```javascript
-export default {
-    plugins: [],
-    server: {
-      open: '/index.html',
-      port: 3116, //< -change this
-    }
-}
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-```
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-### configure tailwind
-There is a `tailwind.config.js` file with `purge` instructions and extra colors, feel free to customize it according to your need
+## Learn More
 
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg-dracula-light {
+    background-color: #44475a;
+}
+
+.bg-dracula-dark {
+    background-color: #282a36;
+}
+
+body {
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
+.font-oleo {
+    font-family: "Oleo Script";
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+.font-lato {
+    font-family: "Lato", sans-serif;
+}
+
+p {
+    @apply mb-4;
+}

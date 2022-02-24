@@ -1,11 +1,17 @@
 import Link from "next/link";
 export default function Header() {
     return (
-        <header className="bg-dracula-light">
-            <div className="container mx-auto ` py-4">
-                <h1 className="lg:text-4xl text-xl font-oleo">
-                    <Link href="/">Mehdi&apos;s Engineering Blog</Link>
-                </h1>
+        //  style="background-color:#393E46;"
+        <header className="mb-8 bg-dark-blog">
+            <div className="container flex items-center justify-between py-8 mx-auto lg:px-48">
+                <Link href="/">
+                    <span className="text-2xl font-bold cursor-pointer text-secondary-blog">
+                        Mehdi&apos;s Engineering Blog
+                    </span>
+                </Link>
+                <span className="text-gray-500 cursor-pointer hover:text-gray-200 transition-colors">
+                    about author
+                </span>
             </div>
         </header>
     );

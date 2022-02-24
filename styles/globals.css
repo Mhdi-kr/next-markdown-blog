@@ -2,17 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-dracula-light {
-    background-color: #44475a;
+.bg-dark-blog {
+    background-color: #393E46;  
 }
-
-.bg-dracula-dark {
-    background-color: #282a36;
+.text-secondary-blog {
+    color: #00B4DB;
 }
-
 body {
-    background-color: #282a36;
-    color: #f8f8f2;
+    background-color: #222831;
+    color: #EEEEEE;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Oleo+Script&display=swap");
@@ -25,6 +23,14 @@ body {
     font-family: "Lato", sans-serif;
 }
 
+/* https://github.com/lonekorean/gist-syntax-themes */
+@import url('https://cdn.rawgit.com/lonekorean/gist-syntax-themes/d49b91b3/stylesheets/one-dark.css');
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+h3 {
+    @apply text-xl mb-1;
+}
 p {
-    @apply mb-4;
+    @apply mb-2 font-light text-gray-300;
 }

@@ -7,7 +7,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     return (
         <div>
             <Header />
-            <Component {...pageProps} />
+            <main className="min-h-screen container lg:px-48 mx-auto">
+                <Component {...pageProps} />
+            </main>
             <Footer />
         </div>
     );

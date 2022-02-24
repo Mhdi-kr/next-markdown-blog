@@ -8,19 +8,19 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-export default function Home({ posts }) {
+import { IPostPage } from "./blog/[slug]";
+
+export default function Home({ posts }: { posts: IPostPage[] }) {
     return (
         <div>
             <Head>
                 <title>Mahdi Karimi</title>
             </Head>
-            <div className="container mx-auto lg:px-16 px-4 py-8 min-h-screen">
-                {posts.map((post, index) => (
-                    <div key={index} className="mb-8">
-                        <Post post={post} />
-                    </div>
-                ))}
-            </div>
+            {posts.map((post, index) => (
+                <div key={index} className="mb-8">
+                    <Post post={post} />
+                </div>
+            ))}
         </div>
     );
 }

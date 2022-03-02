@@ -1,19 +1,28 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import markdownit from 'markdown-it'
+import markdownit from "markdown-it";
 import Link from "next/link";
-import { GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from "next";
+import {
+    GetStaticPathsContext,
+    GetStaticProps,
+    GetStaticPropsContext,
+} from "next";
 import { ParsedUrlQuery } from "querystring";
 
 export interface IPostPage {
-    frontmatter: { title: string , date: string, cover_image: string, excerpt: string },
-    slug: string,
-    content: string,
+    frontmatter: {
+        title: string;
+        date: string;
+        cover_image: string;
+        excerpt: string;
+    };
+    slug: string;
+    content: string;
 }
 
 export default function PostPage({
-    frontmatter: { title , date, cover_image },
+    frontmatter: { title, date, cover_image },
     slug,
     content,
 }: IPostPage) {
@@ -35,13 +44,17 @@ export default function PostPage({
                 ></div>
             </div>
             <Link href="/">
-                <a>Go Back</a>
+                <a href="">
+                    <div className="mb-8">
+                        <p className="text-gray-400 text-right">Go back</p>
+                    </div>
+                </a>
             </Link>
         </>
     );
 }
 
-export const getStaticPaths =  async () => {
+export const getStaticPaths = async () => {
     const files = fs.readdirSync(path.join("posts"));
     const paths = files.map((filename) => ({
         params: {
@@ -52,13 +65,15 @@ export const getStaticPaths =  async () => {
         paths,
         fallback: false,
     };
-}
+};
 
 interface IParams extends ParsedUrlQuery {
-    slug: string
+    slug: string;
 }
 
-export const getStaticProps: GetStaticProps = async (context: GetStaticPropsContext) => {
+export const getStaticProps: GetStaticProps = async (
+    context: GetStaticPropsContext
+) => {
     const { slug } = context.params as IParams;
     const markdownWithMeta = fs.readFileSync(
         path.join("posts", slug + ".md"),
@@ -72,4 +87,4 @@ export const getStaticProps: GetStaticProps = async (context: GetStaticPropsCont
             content,
         },
     };
-  };
+};

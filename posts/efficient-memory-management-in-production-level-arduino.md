@@ -1,9 +1,5 @@
 ---
-title: "Efficient Memory Management In Production-level Arduino Projects"
-date: "2/16/2022"
-excerpt: "Django is a very powerful, high level Python framework for building web applications"
+title: "Memory management in Arduino"
+date: "2022/02/25"
+excerpt: ""
 ---
-
-### Memory
-
-### f that!

@@ -19,6 +19,7 @@ export interface IPostPage {
     };
     slug: string;
     content: string;
+    timeToRead: string;
 }
 
 export default function PostPage({
@@ -28,13 +29,12 @@ export default function PostPage({
 }: IPostPage) {
     return (
         <>
-            <div className="mb-4">
+            <div className="mb-4 pt-8">
                 <h1 className="lg:text-2xl text-base mb-2">{title}</h1>
                 <div className="text-neutral-400 text-xs lg:text-base">
                     Posted on {date}
                 </div>
             </div>
-            <img src={cover_image} alt="" />
             <div className="post-body">
                 <div
                     className="subpixel-antialiased lg:text-lg text-sm tracking-normal"
@@ -43,13 +43,15 @@ export default function PostPage({
                     }}
                 ></div>
             </div>
-            <Link href="/">
-                <a href="">
-                    <div className="mb-8">
-                        <p className="text-gray-400 text-right">Go back</p>
-                    </div>
-                </a>
-            </Link>
+            <div className="flex justify-end">
+                <button className="my-8">
+                    <Link href="/">
+                        <a href="">
+                            <p className="text-gray-400 text-right">Go back</p>
+                        </a>
+                    </Link>
+                </button>
+            </div>
         </>
     );
 }

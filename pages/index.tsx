@@ -7,6 +7,7 @@ import Post from "../components/Post";
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import readingTime from "reading-time";
 
 import { IPostPage } from "./blog/[slug]";
 
@@ -16,8 +17,8 @@ export default function Home({ posts }: { posts: IPostPage[] }) {
             <Head>
                 <title>Mahdi Karimi</title>
             </Head>
-            {posts.map((post, index) => (
-                <div key={index} className="mb-8">
+            {[...posts.sort((a,b) => Number(new Date(b.frontmatter.date)) - Number(new Date(a.frontmatter.date)))].map((post, index) => (
+                <div key={index}>
                     <Post post={post} />
                 </div>
             ))}
@@ -34,9 +35,12 @@ export async function getStaticProps() {
             "utf-8"
         );
         const { data: frontmatter } = matter(markdownWithMeta);
+
+        const { text } = readingTime(markdownWithMeta);
         return {
             slug,
             frontmatter,
+            timeToRead: text
         };
     });
     console.log(posts)

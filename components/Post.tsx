@@ -6,20 +6,23 @@ export default function Post({ post }: { post: IPostPage }) {
         <>
             <div className="flex flex-col items-start">
                 <Link href={`/blog/${post.slug}`}>
-                    <button>
-                        <h3 className="text-gray-100 font-semibold">
+                    <button className="mb-2">
+                        <h3 className="font-semibold">
                             {post.frontmatter.title}
                         </h3>
                     </button>
                 </Link>
                 <small className="text-gray-400">
-                    {new Date(Date.parse(post.frontmatter.date)).toDateString()}
+                    {new Date(Date.parse(post.frontmatter.date))
+                        .toDateString()
+                        .substring(3)}{" "}
+                    - {post.timeToRead}
                 </small>
-                <p className="text-gray-300 mb-4 mt-2">
+                <p>
                     {post.frontmatter.excerpt}
                 </p>
             </div>
-            <hr className="border-gray-600 mb-4" />
+            <hr className="border-gray-300 mt-8" />
         </>
     );
 }

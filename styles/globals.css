@@ -55,8 +55,8 @@
 }
 
 body {
-    background-color: #222831;
-    color: #EEEEEE;
+    background-color: #EEEEEE;
+    color: #222831;
 }
 
 .font-lobster {
@@ -64,8 +64,8 @@ body {
 }
 
 h3 {
-    @apply text-xl mb-1  text-gray-300 hover:text-gray-200 transition-colors;
+    @apply text-xl mt-8;
 }
 p {
-    @apply mb-2 font-light text-gray-400 hover:text-gray-300 transition-colors;
+    @apply mt-4 font-light;
 }

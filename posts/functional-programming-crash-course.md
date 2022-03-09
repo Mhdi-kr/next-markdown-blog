@@ -1,5 +1,5 @@
 ---
-title: 'Functional Programming Crash Course'
+title: 'Refactoring to Functional paradigm'
 date: '2022/02/02'
-excerpt: ''
+excerpt: 'Dotchaining the non-dotchainable in Node JS'
 ---

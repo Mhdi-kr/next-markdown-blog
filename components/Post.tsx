@@ -7,9 +7,7 @@ export default function Post({ post }: { post: IPostPage }) {
             <div className="flex flex-col items-start">
                 <Link href={`/blog/${post.slug}`}>
                     <button className="mb-2">
-                        <h3 className="font-semibold">
-                            {post.frontmatter.title}
-                        </h3>
+                        <h3>{post.frontmatter.title}</h3>
                     </button>
                 </Link>
                 <small className="text-gray-400">
@@ -18,11 +16,9 @@ export default function Post({ post }: { post: IPostPage }) {
                         .substring(3)}{" "}
                     - {post.timeToRead}
                 </small>
-                <p>
-                    {post.frontmatter.excerpt}
-                </p>
+                <p>{post.frontmatter.excerpt}</p>
             </div>
-            <hr className="border-gray-300 mt-8" />
+            <hr className="border-gray-300 mt-4" />
         </>
     );
 }

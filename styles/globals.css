@@ -69,3 +69,6 @@ h3 {
 p {
     @apply mt-4 font-light;
 }
+code {
+  @apply text-sm bg-slate-200 p-1 rounded-lg;
+}

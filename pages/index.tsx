@@ -15,7 +15,7 @@ export default function Home({ posts }: { posts: IPostPage[] }) {
     return (
         <div>
             <Head>
-                <title>Mahdi Karimi</title>
+                <title>Mehdi&apos;s Engineering Blog</title>
             </Head>
             {[...posts.sort((a,b) => Number(new Date(b.frontmatter.date)) - Number(new Date(a.frontmatter.date)))].map((post, index) => (
                 <div key={index}>

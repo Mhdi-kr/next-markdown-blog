@@ -1,19 +1,19 @@
 import Link from "next/link";
+import GithubIcon from "./Icons/GithubIcon";
+import LinkedinIcon from "./Icons/LinkedinIcon";
 export default function Header() {
     return (
         //  style="background-color:#393E46;"
         <header className="mb-8 bg-dark-blog">
-            <div className="container flex items-center justify-between py-8 mx-auto lg:px-48">
-                <Link href="/">
+            <div className="container flex items-center justify-between py-8 mx-auto lg:px-64">
+                <Link passHref={true} href="/">
                     <span className="text-3xl font-lobster cursor-pointer text-secondary-blog">
                         Mehdi&apos;s Engineering Blog
                     </span>
                 </Link>
-                <Link href="/about">
-                    <span className="text-gray-500 cursor-pointer hover:text-gray-200 transition-colors">
-                        about author
-                    </span>
-                </Link>
+                <a href="https://www.github.com/mhdi-kr" referrerPolicy="no-referrer">
+                    <GithubIcon />
+                </a>
             </div>
         </header>
     );

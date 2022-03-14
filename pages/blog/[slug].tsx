@@ -3,12 +3,14 @@ import path from "path";
 import matter from "gray-matter";
 import markdownit from "markdown-it";
 import Link from "next/link";
+import Prism from "prismjs";
 import {
-    GetStaticPathsContext,
     GetStaticProps,
     GetStaticPropsContext,
 } from "next";
+import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
+import { useEffect } from "react";
 
 export interface IPostPage {
     frontmatter: {
@@ -27,10 +29,16 @@ export default function PostPage({
     slug,
     content,
 }: IPostPage) {
+    useEffect(() => {
+        Prism.highlightAll();
+    }, []);
     return (
         <>
+            <Head>
+                <title>{title}</title>
+            </Head>
             <div className="mb-4 pt-8">
-                <h1 className="lg:text-2xl text-base mb-2">{title}</h1>
+                <h2 className="lg:text-2xl text-base mb-2">{title}</h2>
                 <div className="text-neutral-400 text-xs lg:text-base">
                     Posted on {date}
                 </div>

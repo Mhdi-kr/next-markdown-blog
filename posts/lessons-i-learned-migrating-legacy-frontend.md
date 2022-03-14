@@ -4,7 +4,7 @@ date: "2021/12/05"
 excerpt: "I will discuss what I learned migrating a large-scale vue application, Improved developer's experience and maintainability."
 ---
 
-When I joined the hotel team in Alibaba Travels Co. I was tasked to maintain and migrate CRS (Central Reservation System) panel. It was developed using Vue 2.6, Webpack, bootstrap-vue UI component library. There used to be a lot of issues. It had zero tests, There were a lot of technical issues and anti-patterns such as prop-drilling and excess usage of mixins, etc. We were in dire need of a big change.
+When I joined the hotel team in Alibaba Travels Co. I was tasked to maintain and migrate CRS (Central Reservation System) panel. It was developed using Vue 2.6, Webpack, bootstrap-vue UI component library. There used to be a lot of issues. It had zero tests, There were a lot of technical issues and anti-patterns such as prop-drilling and excess use of mixins, etc. We were in dire need of a big change.
 
 There were a lot of ups and downs, but after 4 or 5 months we were able to replace Vue 2 to Vue 3, Webpack to Vite, configured cypress and testing environments, resolved breaking changes, last but not least, migrate ALL of the used SFC components to use a totally different UI component library with different props, design and behaviour!
 
@@ -20,7 +20,7 @@ I tried to rewrite one of our views about supplier crud actions from scratch, my
 
 ### Premature optimization is the root of all evil
 
-Always implement things when you need them, never when you just foresee that you need them
+Always implement things when you need them, never when you just foresee that you _might_ need them
 
 passionate developers tend to overengineer stuff. furthermore, we crave optimization in our designs and developments. it seems so exciting to us and we spend so much time on it that we forget about the product itself. our number one goal should be to deliver value to the business. premature optimization means postponing delivery in favor of making the perfect code/architechture which is a fairy tale. 
 
@@ -96,3 +96,18 @@ I am passionate about my profession. I don't feel time passing by when I'm worki
 Just take breaks to sharpen your axe. Make sure you have enough physical resources, food and sleep to keep you going.
 
 Take a great care of yourself and health, because it is priceless.
+
+
+```javascript
+function MyApp({ Component, pageProps }: AppProps) {
+    return (
+        <div>
+            <Header />
+            <main className="container lg:px-48 mx-auto">
+                <Component {...pageProps} />
+            </main>
+            <Footer />
+        </div>
+    );
+}
+```

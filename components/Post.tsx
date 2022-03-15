@@ -19,6 +19,11 @@ export default function Post({ post }: { post: IPostPage }) {
                     <span>- </span>
                     <span>{post.timeToRead}</span>
                 </small>
+                <div className="mt-1">
+                    {post.tags.map((tag, index) => (
+                        tag.length > 0 && <small key={index} className="p-1 bg-gray-100 text-gray-500 mr-1 text-xs rounded-lg">{tag}</small>
+                    ))}
+                </div>
                 <p>{post.frontmatter.excerpt}</p>
             </article>
             <hr className="border-gray-250 mt-4" />

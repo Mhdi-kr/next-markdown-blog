@@ -3,6 +3,7 @@ export interface IPost {
     title: string;
     content: string;
     imagePath: string;
+    tags: string[];
     slug: string;
     timeToRead: string;
 }

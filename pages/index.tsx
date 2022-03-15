@@ -39,15 +39,16 @@ export async function getStaticProps() {
             "utf-8"
         );
         const { data: frontmatter } = matter(markdownWithMeta);
-
+        
         const { text } = readingTime(markdownWithMeta);
         return {
             slug,
             frontmatter,
+            tags: frontmatter.tags.split(','),
             timeToRead: text,
         };
     });
-    console.log(posts);
+    console.log(posts.map(item => item.tags));
     return {
         props: {
             posts,

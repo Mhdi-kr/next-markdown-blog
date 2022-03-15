@@ -9,8 +9,9 @@ import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
 
-import 'prismjs/components/prism-c';
-import 'prismjs/components/prism-cpp';
+import "prismjs/components/prism-c";
+import "prismjs/components/prism-cpp";
+import { Utterance } from "../../components/Utterance";
 
 export interface IPostPage {
     frontmatter: {
@@ -19,6 +20,7 @@ export interface IPostPage {
         cover_image: string;
         excerpt: string;
     };
+    tags: string[];
     slug: string;
     content: string;
     timeToRead: string;
@@ -52,16 +54,15 @@ export default function PostPage({
                 ></div>
             </div>
             <hr className="my-4" />
-            <button className="mb-8">
+            <button>
                 <Link href="/">
                     <a href="" className="text-gray-400">
                         <span className="mr-4">&#8592;</span>
-                        <span>
-                            Back to the main page
-                        </span>
+                        <span>Back to the main page</span>
                     </a>
                 </Link>
             </button>
+            <Utterance className="mb-8" />
         </article>
     );
 }

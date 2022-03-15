@@ -21,7 +21,7 @@ export const Aside = (props: { className: string }) => {
                             .map((tag) => tag)
                             .sort((a, b) => b.length - a.length)
                             .map((tag, index) => (
-                                <li className="mr-1 mb-1 text-xs bg-gray-200 p-1 rounded cursor-pointer" key={index}>{tag}</li>
+                                <li className="mr-1 mb-1 text-xs bg-gray-100 p-1 rounded cursor-pointer" key={index}>{tag}</li>
                             ))}
                     </ul>
                 </div>

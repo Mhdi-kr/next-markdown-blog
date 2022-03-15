@@ -1,5 +1,5 @@
 ---
-title: "Maintaining my statically generated blog website"
+title: "[unfinished] Maintaining my statically generated blog website"
 date: "2022/03/14"
 excerpt: "How I manage to maintain this blog using Notion, Next.js and Github Pages"
 tags: ""

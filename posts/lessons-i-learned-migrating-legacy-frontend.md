@@ -1,5 +1,5 @@
 ---
-title: "Large-scale Vue 3 Migration: Lessons Learned"
+title: "[unfinished] Large-scale Vue 3 Migration: Lessons Learned"
 date: "2021/12/05"
 excerpt: "I will discuss what I learned migrating a large-scale vue application, Improved developer's experience and maintainability."
 tags: ""

@@ -4,13 +4,13 @@ import matter from "gray-matter";
 import markdownit from "markdown-it";
 import Link from "next/link";
 import Prism from "prismjs";
-import {
-    GetStaticProps,
-    GetStaticPropsContext,
-} from "next";
+import { GetStaticProps, GetStaticPropsContext } from "next";
 import Head from "next/head";
 import { ParsedUrlQuery } from "querystring";
 import { useEffect } from "react";
+
+import 'prismjs/components/prism-c';
+import 'prismjs/components/prism-cpp';
 
 export interface IPostPage {
     frontmatter: {
@@ -33,7 +33,7 @@ export default function PostPage({
         Prism.highlightAll();
     }, []);
     return (
-        <>
+        <article>
             <Head>
                 <title>{title}</title>
             </Head>
@@ -51,16 +51,18 @@ export default function PostPage({
                     }}
                 ></div>
             </div>
-            <div className="flex justify-end">
-                <button className="my-8">
-                    <Link href="/">
-                        <a href="">
-                            <p className="text-gray-400 text-right">Go back</p>
-                        </a>
-                    </Link>
-                </button>
-            </div>
-        </>
+            <hr className="my-4" />
+            <button className="mb-8">
+                <Link href="/">
+                    <a href="" className="text-gray-400">
+                        <span className="mr-4">&#8592;</span>
+                        <span>
+                            Back to the main page
+                        </span>
+                    </a>
+                </Link>
+            </button>
+        </article>
     );
 }
 

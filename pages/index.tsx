@@ -13,16 +13,20 @@ import { IPostPage } from "./blog/[slug]";
 
 export default function Home({ posts }: { posts: IPostPage[] }) {
     return (
-        <div>
+        <>
             <Head>
                 <title>Mehdi&apos;s Engineering Blog</title>
             </Head>
-            {[...posts.sort((a,b) => Number(new Date(b.frontmatter.date)) - Number(new Date(a.frontmatter.date)))].map((post, index) => (
-                <div key={index}>
-                    <Post post={post} />
-                </div>
+            {[
+                ...posts.sort(
+                    (a, b) =>
+                        Number(new Date(b.frontmatter.date)) -  
+                        Number(new Date(a.frontmatter.date))
+                ),
+            ].map((post, index) => (
+                <Post key={index} post={post} />
             ))}
-        </div>
+        </>
     );
 }
 
@@ -40,10 +44,10 @@ export async function getStaticProps() {
         return {
             slug,
             frontmatter,
-            timeToRead: text
+            timeToRead: text,
         };
     });
-    console.log(posts)
+    console.log(posts);
     return {
         props: {
             posts,

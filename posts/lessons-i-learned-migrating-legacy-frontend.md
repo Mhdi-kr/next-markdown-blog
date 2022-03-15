@@ -2,6 +2,7 @@
 title: "Large-scale Vue 3 Migration: Lessons Learned"
 date: "2021/12/05"
 excerpt: "I will discuss what I learned migrating a large-scale vue application, Improved developer's experience and maintainability."
+tags: ""
 ---
 
 When I joined the hotel team in Alibaba Travels Co. I was tasked to maintain and migrate CRS (Central Reservation System) panel. It was developed using Vue 2.6, Webpack, bootstrap-vue UI component library. There used to be a lot of issues. It had zero tests, There were a lot of technical issues and anti-patterns such as prop-drilling and excess use of mixins, etc. We were in dire need of a big change.
@@ -10,7 +11,7 @@ There were a lot of ups and downs, but after 4 or 5 months we were able to repla
 
 All of it happened in the same git repository but in a different branch! Just like natural selection, I knew we could not afford to do things from scratch. This is how we get to my first point here.
 
-### Always Prefer changing existing code rather than re-writing from scratch
+### Always prefer changing existing code rather than re-writing from scratch
 
 There was a lot of code that I could reuse in the migration without any problems such as the custom date and currency plugins and utils, cloud integration API calls, reusable general components that existed in the codebase, etc.
 

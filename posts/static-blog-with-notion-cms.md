@@ -1,0 +1,21 @@
+---
+title: "Maintaining my statically generated blog website"
+date: "2022/03/14"
+excerpt: "How I manage to maintain this blog using Notion, Next.js and Github Pages"
+tags: ""
+---
+I always wanted to have a blog, but never actually put the time to get it done. Creating meaningful blog posts that are not here for marketing or SEO hell (or anything valuable for that matter) is not an easy task.
+
+I tried a lot of things. Wordpress was heavyweight and clunky, Medium or other micro-blogging services did not just feel _right_ to me. I wanted to have something of my own.
+
+I made this website uisng Next.js React framework. The repository contains multiple markdown files. Each file represents a blog post. The blog posts are generated using Notion CMS.
+
+Then when generating statically generated website from the React code, Next.js provide us with `fs` library from Nodejs on compile-time that allows us to read markdown files and feed it to markdown parser to have parsed data from markdown files
+
+We use that data we just read from the filesystem to feed it to my custom react components and render it to static HTML.
+
+After Next.js does its magic of SSG, I use the `gh-pages` command-line interface tool to push everything to a specific branch, on my Github repository.
+
+Github automatically detects push-events to this branch and then deploys my newly created HTML and assets files to the web!
+
+There's a neat Github widget you can use to turn Github issues to comments.

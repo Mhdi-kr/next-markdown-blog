@@ -55,9 +55,9 @@ const fs = require("fs");
 const { optimize } = require("svgo");
 
 const optimizer = (arg) => ({
-    import: (arg) => optimizer(readFiles(arg)),
-    optimize: (arg) => optimizer(optimizeItems(arg)),
-    export: (arg) => writeComponents(arg),
+    import: () => optimizer(readFiles(arg)),
+    optimize: () => optimizer(optimizeItems(arg)),
+    export: () => writeComponents(arg),
 });
 
 const readFiles = (paths) =>

@@ -11,6 +11,6 @@ export const Utterance = (props: { className: string }) => {
         script.setAttribute("issue-term", "pathname");
         script.setAttribute("theme", "github-light");
         anchor.appendChild(script);
-    });
+    }, []);
     return <div id="inject-comments-for-uterances" className={props.className}></div>;
 };

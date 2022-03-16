@@ -2,7 +2,7 @@
 title: "[unfinished] Large-scale Vue 3 Migration: Lessons Learned"
 date: "2021/12/05"
 excerpt: "I will discuss what I learned migrating a large-scale vue application, Improved developer's experience and maintainability."
-tags: ""
+tags: "Frontend"
 ---
 
 When I joined the hotel team in Alibaba Travels Co. I was tasked to maintain and migrate CRS (Central Reservation System) panel. It was developed using Vue 2.6, Webpack, bootstrap-vue UI component library. There used to be a lot of issues. It had zero tests, There were a lot of technical issues and anti-patterns such as prop-drilling and excess use of mixins, etc. We were in dire need of a big change.

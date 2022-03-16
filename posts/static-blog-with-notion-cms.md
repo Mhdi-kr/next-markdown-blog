@@ -17,7 +17,7 @@ I tried many different ways and flavors of blogging. Wordpress was heavyweight a
 ## Github pages
 I made a repository on Github to host all of the code needed for the blog. Then used the Github pages free service to serve the HTML files available on the repo. 
 
-As a cherry on top, you can use Cloudflare's free services to point the `YOUR_REPO.github.io` to you custom domain `YOUR_DOMAIN.co.uk` for example.
+As a cherry on top, you can use Cloudflare's free services to point the `YOUR_USR.github.io/YOUR_REPO` to your custom domain `YOUR_DOMAIN.co.uk` for example.
 
 That's exactly what I did to `Mahdikarimi.com` and pointed it to `mhdi-kr.github.io/personal-blog` using Cloudflare and my domain provider settings.
 

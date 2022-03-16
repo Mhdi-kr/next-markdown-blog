@@ -5,47 +5,76 @@ excerpt: "How I manage to maintain this blog using Notion, Next.js and Github Pa
 tags: "Frontend"
 ---
 
-I always wanted to have a personal blog, [but never actually put the time to get it done](/blog/developers-productivty-and-procrastination). Creating meaningful blog posts is not an easy task, might as well have systems or tools that can be used to help us do it easier and faster.
 
-I tried a lot of ways and flavors of blogging. Wordpress was heavyweight and clunky, Medium or other micro-blogging services did not just feel _right_ to me. Naturally as a web developer, I wanted to have something of my own.
+  
+## My story
+I always wanted to have a personal blog, [but never actually put the time in to get it done](/blog/developers-productivty-and-procrastination). 
 
-This website was built upon the Next.js React framework. The repository containes React components for styling and layout and markdown files for the blog posts and actual content.
+Creating meaningful blog posts is not an easy task, might as well have systems and tools in place helping us do it faster and easier.
 
-The `getStaticProps` function is called by Next.js when the page is first loaded. It is then used to fetch the markdown content using `fs` and inject it as props into the components.
+I tried many different ways and flavors of blogging. Wordpress was heavyweight and clunky, Medium or other micro-blogging services did not just feel _right_ to me. Naturally as a web developer, I wanted to have something of my own and make it from scratch.
 
-```javascript
-// reading *.md files and converting them to usable state
-export async function getStaticProps() {
-    const posts = fs
-        .readdirSync(path.join("posts"))
-        .map((file) => fs.readFileSync(path.join("posts", file), "utf-8"));
-    return {
-        props: {
-            posts,
-        },
-    };
-}
-```
+## Github pages
+I made a repository on Github to host all of the code needed for the blog. Then used the Github pages free service to serve the HTML files available on the repo. 
 
-We can now facilitate Next.js SSG (static site generation) to render and export the blog posts
-as static HTML files.
+As a cherry on top, you can use Cloudflare's free services to point the `YOUR_REPO.github.io` to you custom domain `YOUR_DOMAIN.co.uk` for example.
 
-```Bash
-$ next export
-```
+That's exactly what I did to `Mahdikarimi.com` and pointed it to `mhdi-kr.github.io/personal-blog` using Cloudflare and my domain provider settings.
 
-Now we have all possible routes and contents statically available to us in the `/out` directory.
+Hosting your blog on Github brings 
 
-Let's publish the generated files to Github Pages. I use the `gh-pages` CLI utility to publish the static HTML files to a specific branch.
+## Nest.js, Filesystems and Markdown parsers
+
+This website was built upon the Next.js React framework. I've developed React components layout and stylings. The actual content of the blog posts are written in Markdown format in a specific directory inside the repo. 
+
+Nest.js allows you to acess filesystems in serverside configuration using the `fs` object available in Node js.
+The `getStaticProps` function is called by Next.js when the page is first loaded. It is then used to fetch the markdown content using Nodejs filesystem.
+
+After fetching the actual content as strings we need to parse it using a Markdown parser and pass it onto the components as state props for react to do its magic. 
+
+## Sky is the limit!
+
+You can do all sorts of cool things with Markdown files!  You can hide any metadata inside your Markdown files called _Frontmatter_. Your markdown parser will provide you with it and you can use it to embed dates, tags or arbitrary static state to your blog posts! 
+
+Using that state in React,  you can conditionally hide/show your posts, render tags or dates, etc! Sky's the limit.
+  
+## Generating static HTML, CSS and JS files
+
+By using the `next export` command line, we can render all the HTML, CSS and JS files we need for the website to be up and running without a runtime, in the `/out` directory. This is great because this is what we need for Github pages!
+
+  
+## Publishing changes without hassle
+Let's publish the generated files to Github Pages. I use the `gh-pages` CLI utility, available on NPM, to publish the static files to a specific branch.
+
+  
 
 Github automatically detects push-events to this branch and then deploys my newly created HTML and assets files to the web!
 
-With Utterance Github app you can have fully functional comment section in your posts! It uses Github issues under the hood and I could easily integrated this with React.
 
-## All in one go
+  
 
-You can aggergate all of the above into one command, or even register it as a NPM command to run every time you want to publish your blog.
+## All in one go!
+
+  
+
+You can aggergate all the steps I talked about in one single command, or even register it as a NPM command to run every time you want to publish your blog.
+
+  
 
 ```Bash
+
 $ yarn build && yarn export && touch out/.nojekyll && gh-pages -t -d out
+
 ```
+
+## Handling comments
+
+Any form of content creation requires a feedback loop to bring value to its users as well as authors.
+
+The problem with Github pages for handling comments is that everything is static. You don't have access to a database on it to be able to do CRUD operations. 
+
+Of course there are workarounds for those kinds of tasks but I wanted something elegant and fast. This is where Utterance comes into play. 
+
+With Utterance Github app you can have fully functional comment section in your posts! It uses Github issues under the hood and I could easily integrated this with React.
+
+Make sure you checkout their documentation for more details!

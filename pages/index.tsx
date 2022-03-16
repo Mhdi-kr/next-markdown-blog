@@ -48,7 +48,6 @@ export async function getStaticProps() {
             timeToRead: text,
         };
     });
-    console.log(posts.map(item => item.tags));
     return {
         props: {
             posts,

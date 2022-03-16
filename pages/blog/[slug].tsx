@@ -11,6 +11,8 @@ import { useEffect } from "react";
 
 import "prismjs/components/prism-c";
 import "prismjs/components/prism-cpp";
+import "prismjs/components/prism-bash";
+
 import { Utterance } from "../../components/Utterance";
 
 export interface IPostPage {
@@ -35,35 +37,35 @@ export default function PostPage({
         Prism.highlightAll();
     }, []);
     return (
-        <article>
+        <>
             <Head>
                 <title>{title}</title>
             </Head>
-            <div className="mb-4 pt-8">
-                <h2 className="lg:text-2xl text-base mb-2">{title}</h2>
-                <div className="text-neutral-400 text-xs lg:text-base">
-                    Posted on {date}
+            <article>
+                <div className="mt-8">
+                    <h2 className="capitalize">{title}</h2>
+                    <time className="text-neutral-400 block mt-2 text-sm">
+                        Posted on {date}
+                    </time>
                 </div>
-            </div>
-            <div className="post-body">
                 <div
-                    className="subpixel-antialiased lg:text-lg text-sm tracking-normal"
+                    className="subpixel-antialiased mt-8 tracking-normal"
                     dangerouslySetInnerHTML={{
                         __html: markdownit().render(content),
                     }}
-                ></div>
-            </div>
-            <hr className="my-4" />
-            <button>
-                <Link href="/">
-                    <a href="" className="text-gray-400">
-                        <span className="mr-4">&#8592;</span>
-                        <span>Back to the main page</span>
-                    </a>
-                </Link>
-            </button>
-            <Utterance className="mb-8" />
-        </article>
+                />
+                <hr className="mt-8" />
+                <button className="mt-4">
+                    <Link passHref={true} href="/">
+                        <div className="text-gray-400">
+                            <span className="mr-4">&#8592;</span>
+                            <span>Back to the main page</span>
+                        </div>
+                    </Link>
+                </button>
+                <Utterance className="mt-2" />
+            </article>
+        </>
     );
 }
 

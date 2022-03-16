@@ -17,17 +17,17 @@ I tried many different ways and flavors of blogging. Wordpress was heavyweight a
 ## Github pages
 I made a repository on Github to host all of the code needed for the blog. Then used the Github pages free service to serve the HTML files available on the repo. 
 
-As a cherry on top, you can use Cloudflare's free services to point the `YOUR_REPO.github.io` to you custom domain `YOUR_DOMAIN.co.uk` for example.
+As a cherry on top, you can use Cloudflare's free services to point the `YOUR_USR.github.io/YOUR_REPO` to your custom domain `YOUR_DOMAIN.co.uk` for example.
 
 That's exactly what I did to `Mahdikarimi.com` and pointed it to `mhdi-kr.github.io/personal-blog` using Cloudflare and my domain provider settings.
 
 Hosting your blog on Github brings 
 
-## Nest.js, Filesystems and Markdown parsers
+## Next.js, Filesystems and Markdown parsers
 
 This website was built upon the Next.js React framework. I've developed React components layout and stylings. The actual content of the blog posts are written in Markdown format in a specific directory inside the repo. 
 
-Nest.js allows you to acess filesystems in serverside configuration using the `fs` object available in Node js.
+Next.js allows you to acess filesystems in serverside configuration using the `fs` object available in Node js.
 The `getStaticProps` function is called by Next.js when the page is first loaded. It is then used to fetch the markdown content using Nodejs filesystem.
 
 After fetching the actual content as strings we need to parse it using a Markdown parser and pass it onto the components as state props for react to do its magic. 

@@ -12,13 +12,7 @@ export default function Home({ posts }: { posts: IPost[] }) {
             <Head>
                 <title>Mehdi&apos;s Engineering Blog</title>
             </Head>
-            {[
-                ...posts.sort(
-                    (a, b) =>
-                        Number(new Date(b.frontmatter.date)) -
-                        Number(new Date(a.frontmatter.date))
-                ),
-            ].map((post, index) => (
+            {posts.map((post, index) => (
                 <Post key={index} post={post} />
             ))}
         </>
@@ -27,6 +21,6 @@ export default function Home({ posts }: { posts: IPost[] }) {
 
 export const getStaticProps = async () => ({
     props: {
-        posts : parseAllPosts('posts'),
+        posts: parseAllPosts("posts"),
     },
-})
+});

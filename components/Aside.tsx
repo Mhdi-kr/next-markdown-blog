@@ -8,16 +8,16 @@ export const Aside = (props: { className: string; posts: IPost[] }) => {
             <aside className={props.className}>
                 <div className="mb-4">
                     <p className="font-medium mb-1 text-gray-600">
-                        5 Recent posts
+                        recently posted
                     </p>
                     <ul className="text-gray-500">
-                        {props?.posts?.map((post, index) => (
+                        {props.posts.slice(0,5).map((post, index) => (
                             <li key={index}>
                                 <Link
                                     passHref={true}
                                     href={`/blog/${post.slug}`}
                                 >
-                                    <small>{post.slug}</small>
+                                    <a className="text-xs mt-0">{post.frontmatter.title}</a>
                                 </Link>
                             </li>
                         ))}

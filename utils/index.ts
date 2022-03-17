@@ -29,5 +29,9 @@ export const parseAllPosts = (directory: string): IPost[] => {
             content,
         };
     });
-    return posts;
+    return posts.sort(
+        (a, b) =>
+            Number(new Date(b.frontmatter.date)) -
+            Number(new Date(a.frontmatter.date))
+    );
 };

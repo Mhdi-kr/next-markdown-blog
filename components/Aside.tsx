@@ -1,4 +1,8 @@
-export const Aside = (props: { className: string }) => {
+import Link from "next/link";
+import { IPost } from "../interfaces/IPost";
+
+export const Aside = (props: { className: string; posts: IPost[] }) => {
+    console.log(props);
     return (
         <>
             <aside className={props.className}>
@@ -7,21 +11,16 @@ export const Aside = (props: { className: string }) => {
                         5 Recent posts
                     </p>
                     <ul className="text-gray-500">
-                        <li>
-                            <small>Developer&apos;s Procrastination</small>
-                        </li>
-                        <li>
-                            <small>Memory management in Arduino</small>
-                        </li>
-                        <li>
-                            <small>Refactoring to Functional paradigm</small>
-                        </li>
-                        <li>
-                            <small>Frontend Development Skilltree</small>
-                        </li>
-                        <li>
-                            <small>Memory management in Arduino</small>
-                        </li>
+                        {props?.posts?.map((post, index) => (
+                            <li key={index}>
+                                <Link
+                                    passHref={true}
+                                    href={`/blog/${post.slug}`}
+                                >
+                                    <small>{post.slug}</small>
+                                </Link>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="mb-4">
@@ -44,6 +43,7 @@ export const Aside = (props: { className: string }) => {
         </>
     );
 };
+
 enum Tags {
     TUTORIAL = "tutorial",
     EMBEDED = "embeded",

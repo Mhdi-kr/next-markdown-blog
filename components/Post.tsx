@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { IPostPage } from "../pages/blog/[slug]";
+import { IPost } from "../interfaces/IPost";
 
-export default function Post({ post }: { post: IPostPage }) {
+export default function Post({ post }: { post: IPost }) {
     return (
         <>
             <article className="flex flex-col items-start">
@@ -22,7 +22,7 @@ export default function Post({ post }: { post: IPostPage }) {
                     <span>{post.timeToRead}</span>
                 </small>
                 <div className="mt-1">
-                    {post.tags.map(
+                    {post.frontmatter.tags.map(
                         (tag, index) =>
                             tag.length > 0 && (
                                 <small

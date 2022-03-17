@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Aside } from "../components/Aside";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function ApplicationRoot({ Component, pageProps }: AppProps) {
     return (
         <>
             <Header />
@@ -13,11 +13,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <main className="w-2/3">
                     <Component {...pageProps} />
                 </main>
-                <Aside className="p-8 w-1/3 text-sm sticky top-0" />
+                <Aside className="p-8 w-1/3 text-sm sticky top-0" {...pageProps} />
             </section>
             <Footer />
         </>
     );
 }
 
-export default MyApp;
+export default ApplicationRoot;

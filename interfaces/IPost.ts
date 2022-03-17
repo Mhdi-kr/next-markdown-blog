@@ -1,9 +1,8 @@
+import { IFrontmatter } from "./IFrontmatter";
+
 export interface IPost {
-    id: number;
-    title: string;
-    content: string;
-    imagePath: string;
-    tags: string[];
+    frontmatter: IFrontmatter;
     slug: string;
     timeToRead: string;
+    content: string;
 }

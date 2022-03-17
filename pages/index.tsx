@@ -3,15 +3,10 @@ import Head from "next/head";
 // import Image from "next/image";
 
 import Post from "../components/Post";
+import { parseAllPosts } from "../utils";
+import { IPost } from "../interfaces/IPost";
 
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import readingTime from "reading-time";
-
-import { IPostPage } from "./blog/[slug]";
-
-export default function Home({ posts }: { posts: IPostPage[] }) {
+export default function Home({ posts }: { posts: IPost[] }) {
     return (
         <>
             <Head>
@@ -20,7 +15,7 @@ export default function Home({ posts }: { posts: IPostPage[] }) {
             {[
                 ...posts.sort(
                     (a, b) =>
-                        Number(new Date(b.frontmatter.date)) -  
+                        Number(new Date(b.frontmatter.date)) -
                         Number(new Date(a.frontmatter.date))
                 ),
             ].map((post, index) => (
@@ -30,27 +25,8 @@ export default function Home({ posts }: { posts: IPostPage[] }) {
     );
 }
 
-export async function getStaticProps() {
-    const files = fs.readdirSync(path.join("posts"));
-    const posts = files.map((filename) => {
-        const slug = filename.replace(".md", "");
-        const markdownWithMeta = fs.readFileSync(
-            path.join("posts", filename),
-            "utf-8"
-        );
-        const { data: frontmatter } = matter(markdownWithMeta);
-        
-        const { text } = readingTime(markdownWithMeta);
-        return {
-            slug,
-            frontmatter,
-            tags: frontmatter.tags.split(','),
-            timeToRead: text,
-        };
-    });
-    return {
-        props: {
-            posts,
-        },
-    };
-}
+export const getStaticProps = async () => ({
+    props: {
+        posts : parseAllPosts('posts'),
+    },
+})

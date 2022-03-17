@@ -1,6 +1,5 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import markdownit from "markdown-it";
 import Link from "next/link";
 import Prism from "prismjs";
@@ -14,44 +13,29 @@ import "prismjs/components/prism-cpp";
 import "prismjs/components/prism-bash";
 
 import { Utterance } from "../../components/Utterance";
+import { parseAllPosts } from "../../utils";
+import { IPost } from "../../interfaces/IPost";
 
-export interface IPostPage {
-    frontmatter: {
-        title: string;
-        date: string;
-        cover_image: string;
-        excerpt: string;
-    };
-    tags: string[];
-    slug: string;
-    content: string;
-    timeToRead: string;
-}
-
-export default function PostPage({
-    frontmatter: { title, date, cover_image },
-    slug,
-    content,
-}: IPostPage) {
+export default function PostPage({ posts, post }: { posts: IPost[], post: IPost}) {
     useEffect(() => {
         Prism.highlightAll();
     }, []);
     return (
         <>
             <Head>
-                <title>{title}</title>
+                <title>{post.frontmatter.title}</title>
             </Head>
             <article>
                 <div className="mt-8">
-                    <h2 className="capitalize">{title}</h2>
+                    <h2 className="capitalize">{post.frontmatter.title}</h2>
                     <time className="text-neutral-400 block mt-2 text-sm">
-                        Posted on {date}
+                        Posted on {post.frontmatter.date}
                     </time>
                 </div>
                 <div
                     className="subpixel-antialiased mt-8 tracking-normal"
                     dangerouslySetInnerHTML={{
-                        __html: markdownit().render(content),
+                        __html: markdownit().render(post.content),
                     }}
                 />
                 <hr className="mt-8" />
@@ -90,16 +74,12 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const { slug } = context.params as IParams;
-    const markdownWithMeta = fs.readFileSync(
-        path.join("posts", slug + ".md"),
-        "utf-8"
-    );
-    const { data: frontmatter, content } = matter(markdownWithMeta);
+    const posts = parseAllPosts('posts')
+    const post = posts.find(post => post.slug === slug)
     return {
         props: {
-            frontmatter,
-            slug,
-            content,
+            posts,
+            post
         },
     };
 };

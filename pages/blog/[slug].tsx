@@ -16,14 +16,32 @@ import { Utterance } from "../../components/Utterance";
 import { parseAllPosts } from "../../utils";
 import { IPost } from "../../interfaces/IPost";
 
-export default function PostPage({ posts, post }: { posts: IPost[], post: IPost}) {
+const generateMeta = (post: IPost) => (
+    <>
+        <title>{post.frontmatter.title}</title>
+        <meta name="description" content={post.frontmatter.excerpt}/>
+        {/* twitter tags */}
+        <meta name="twitter:card" content=""/>
+        <meta name="twitter:image" content=""/>
+        <meta name="twitter:title" content={post.frontmatter.title}/>
+        <meta name="twitter:description" content={post.frontmatter.excerpt}/>
+    </>
+);
+
+export default function PostPage({
+    posts,
+    post,
+}: {
+    posts: IPost[];
+    post: IPost;
+}) {
     useEffect(() => {
         Prism.highlightAll();
     }, []);
     return (
         <>
             <Head>
-                <title>{post.frontmatter.title}</title>
+                { generateMeta(post) }
             </Head>
             <article>
                 <div className="mt-8">
@@ -55,7 +73,7 @@ export default function PostPage({ posts, post }: { posts: IPost[], post: IPost}
 
 export const getStaticPaths = async () => {
     const posts = parseAllPosts("posts");
-    const paths = posts.map(post => ({ params: { slug: post.slug } }));
+    const paths = posts.map((post) => ({ params: { slug: post.slug } }));
     return {
         paths,
         fallback: false,
@@ -70,12 +88,12 @@ export const getStaticProps: GetStaticProps = async (
     context: GetStaticPropsContext
 ) => {
     const { slug } = context.params as IParams;
-    const posts = parseAllPosts('posts')
-    const post = posts.find(post => post.slug === slug)
+    const posts = parseAllPosts("posts");
+    const post = posts.find((post) => post.slug === slug);
     return {
         props: {
             posts,
-            post
+            post,
         },
     };
 };

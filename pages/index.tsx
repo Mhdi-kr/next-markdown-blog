@@ -11,6 +11,7 @@ export default function Home({ posts }: { posts: IPost[] }) {
         <>
             <Head>
                 <title>Mehdi&apos;s Engineering Blog</title>
+                <meta name="description" content="Sharing my engineering experience" />
             </Head>
             {posts.map((post, index) => (
                 <Post key={index} post={post} />

@@ -22,8 +22,6 @@ As a cherry on top, you can use Cloudflare's free services to point the `YOUR_US
 
 That's exactly what I did to `Mahdikarimi.com` and pointed it to `mhdi-kr.github.io/personal-blog` using Cloudflare and my domain provider settings.
 
-Hosting your blog on Github brings 
-
 ## Next.js, Filesystems and Markdown parsers
 
 This website was built upon the Next.js React framework. I've developed React components layout and stylings. The actual content of the blog posts are written in Markdown format in a specific directory inside the repo. 
@@ -35,17 +33,17 @@ After fetching the actual content as strings we need to parse it using a Markdow
 
 ## Sky is the limit!
 
-You can do all sorts of cool things with Markdown files!  You can hide any metadata inside your Markdown files called _Frontmatter_. Your markdown parser will provide you with it and you can use it to embed dates, tags or arbitrary static state to your blog posts! 
+You can do all sorts of cool things with Markdown files! You can hide any metadata inside it files called _Frontmatter_. Your markdown parser will provide it to you and you can use it to embed dates, tags or arbitrary static state in your blog posts! 
 
-Using that state in React,  you can conditionally hide/show your posts, render tags or dates, etc! Sky's the limit.
+Using that state in React, you can conditionally hide/show your posts, render tags or dates, etc! Sky's the limit.
   
 ## Generating static HTML, CSS and JS files
 
-By using the `next export` command line, we can render all the HTML, CSS and JS files we need for the website to be up and running without a runtime, in the `/out` directory. This is great because this is what we need for Github pages!
+By using the `next export` command in the terminal, we can render all the HTML, CSS and JS files we need for the website to be up and running without a runtime in the `/out` directory. This is great because this is all we need for Github pages!
 
   
 ## Publishing changes without hassle
-Let's publish the generated files to Github Pages. I use the `gh-pages` CLI utility, available on NPM, to publish the static files to a specific branch.
+Let's publish the generated files to Github Pages. I use the `gh-pages` CLI utility,[ available on NPM](https://www.npmjs.com/package/gh-pages), to publish the static files to a specific branch.
 
   
 
@@ -74,8 +72,8 @@ Any form of content creation requires a feedback loop to bring value to its user
 
 The problem with Github pages for handling comments is that everything is static. You don't have access to a database on it to be able to do CRUD operations. 
 
-Of course there are workarounds for those kinds of tasks but I wanted something elegant and fast. This is where Utterance comes into play. 
+Of course there are workarounds for those kinds of tasks but I wanted something elegant and fast. This is where utterances comes into play. 
 
-With Utterance Github app you can have fully functional comment section in your posts! It uses Github issues under the hood and I could easily integrated this with React.
+With utterances Github app you can have fully functional comment section in your posts! It uses Github issues under the hood and I could easily integrated this with React.
 
-Make sure you checkout their documentation for more details!
+Make sure you [checkout their documentation for more details!](https://utteranc.es/)

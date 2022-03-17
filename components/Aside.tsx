@@ -2,7 +2,6 @@ import Link from "next/link";
 import { IPost } from "../interfaces/IPost";
 
 export const Aside = (props: { className: string; posts: IPost[] }) => {
-    console.log(props);
     return (
         <>
             <aside className={props.className}>
@@ -11,7 +10,7 @@ export const Aside = (props: { className: string; posts: IPost[] }) => {
                         recently posted
                     </p>
                     <ul className="text-gray-500">
-                        {props.posts.slice(0,5).map((post, index) => (
+                        {props?.posts?.slice(0,5).map((post, index) => (
                             <li key={index}>
                                 <Link
                                     passHref={true}

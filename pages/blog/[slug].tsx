@@ -54,12 +54,8 @@ export default function PostPage({ posts, post }: { posts: IPost[], post: IPost}
 }
 
 export const getStaticPaths = async () => {
-    const files = fs.readdirSync(path.join("posts"));
-    const paths = files.map((filename) => ({
-        params: {
-            slug: filename.replace(".md", ""),
-        },
-    }));
+    const posts = parseAllPosts("posts");
+    const paths = posts.map(post => ({ params: { slug: post.slug } }));
     return {
         paths,
         fallback: false,

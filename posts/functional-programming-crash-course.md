@@ -3,6 +3,7 @@ title: "[unfinished] Refactoring to Functional paradigm"
 date: "2022/02/02"
 excerpt: "Dotchaining the non-dotchainable in Node JS"
 tags: "Tutorial,Javascript"
+show: false
 ---
 ### What we already know about developing applications
 

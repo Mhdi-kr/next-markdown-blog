@@ -10,7 +10,7 @@ function ApplicationRoot({ Component, pageProps }: AppProps) {
         <>
             <Header />
             <section className="container flex items-start lg:px-32 mx-auto">
-                <main className="w-2/3">
+                <main className="w-2/3 pb-8">
                     <Component {...pageProps} />
                 </main>
                 <Aside className="p-8 w-1/3 text-sm sticky top-0" {...pageProps} />

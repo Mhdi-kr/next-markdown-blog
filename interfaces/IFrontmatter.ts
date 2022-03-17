@@ -3,4 +3,5 @@ export interface IFrontmatter {
     excerpt: string;
     date: string;
     tags: string[];
+    show: boolean;
 }

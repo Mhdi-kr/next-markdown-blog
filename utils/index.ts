@@ -20,6 +20,7 @@ export const parseAllPosts = (directory: string): IPost[] => {
             excerpt: rawFrontmatter.excerpt as string,
             date: rawFrontmatter.date as string,
             tags: rawFrontmatter.tags.split(",") as string[],
+            show: rawFrontmatter.show as boolean,
         };
         const { text: timeToRead } = readingTime(content);
         return {
@@ -29,9 +30,10 @@ export const parseAllPosts = (directory: string): IPost[] => {
             content,
         };
     });
-    return posts.sort(
+    posts.sort(
         (a, b) =>
             Number(new Date(b.frontmatter.date)) -
             Number(new Date(a.frontmatter.date))
     );
+    return posts.filter(post => post.frontmatter.show);
 };

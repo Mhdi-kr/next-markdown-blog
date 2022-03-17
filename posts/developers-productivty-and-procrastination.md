@@ -1,8 +1,9 @@
 ---
-title: "[unfinished] Developer's Procrastination"
+title: "Developer's Procrastination"
 date: "2022/02/25"
 excerpt: "In search of maximum outcome with minimum effort, we all have faced our biggest demons."
 tags: "Life"
+show: true
 ---
 
 _"I always wanted to learn/do that but never actually found time for it"_ - Me, sometimes

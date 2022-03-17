@@ -3,6 +3,7 @@ title: "maintaining my statically generated tech blog"
 date: "2022/03/14"
 excerpt: "How I manage to maintain this blog using Notion, Next.js and Github Pages"
 tags: "Frontend"
+show: true
 ---
 
 

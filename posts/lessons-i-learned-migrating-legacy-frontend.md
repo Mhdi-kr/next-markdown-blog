@@ -1,5 +1,5 @@
 ---
-title: "[unfinished] Large-scale Vue 3 Migration: Lessons Learned"
+title: "Large-scale Vue 3 Migration: Lessons Learned"
 date: "2021/12/05"
 excerpt: "I will discuss what I learned migrating a large-scale vue application, Improved developer's experience and maintainability."
 tags: "Life,Frontend,Vue.js"
@@ -97,18 +97,3 @@ I am passionate about my profession. I don't feel time passing by when I'm worki
 Just take breaks to sharpen your axe. Make sure you have enough physical resources, food and sleep to keep you going.
 
 Take a great care of yourself and health, because it is priceless.
-
-
-```javascript
-function MyApp({ Component, pageProps }: AppProps) {
-    return (
-        <div>
-            <Header />
-            <main className="container lg:px-48 mx-auto">
-                <Component {...pageProps} />
-            </main>
-            <Footer />
-        </div>
-    );
-}
-```

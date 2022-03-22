@@ -9,11 +9,11 @@ function ApplicationRoot({ Component, pageProps }: AppProps) {
     return (
         <>
             <Header />
-            <section className="container flex items-start lg:px-32 mx-auto">
-                <main className="w-2/3 pb-8">
+            <section className="container flex flex-col md:flex-row items-start p-4 lg:px-32 mx-auto">
+                <main className="w-full md:w-2/3 pb-8">
                     <Component {...pageProps} />
                 </main>
-                <Aside className="p-8 w-1/3 text-sm sticky top-0" {...pageProps} />
+                <Aside className="md:p-8 w-full md:w-1/3 text-sm sticky top-0" {...pageProps} />
             </section>
             <Footer />
         </>

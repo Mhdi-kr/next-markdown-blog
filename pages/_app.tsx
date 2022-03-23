@@ -9,7 +9,7 @@ function ApplicationRoot({ Component, pageProps }: AppProps) {
     return (
         <>
             <Header />
-            <section className="container flex flex-col md:flex-row items-start p-4 lg:px-32 mx-auto">
+            <section className="container flex flex-col md:flex-row items-start px-4 md:p-4 lg:px-32 mx-auto">
                 <main className="w-full md:w-2/3 pb-8">
                     <Component {...pageProps} />
                 </main>

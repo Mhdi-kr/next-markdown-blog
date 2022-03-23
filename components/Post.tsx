@@ -7,7 +7,7 @@ export default function Post({ post }: { post: IPost }) {
             <article className="flex flex-col items-start">
                 <Link passHref={true} href={`/blog/${post.slug}`}>
                     <h3 className="text-xl">
-                        <button>
+                        <button className="text-left">
                             <span className="capitalize">{post.frontmatter.title}</span>
                         </button>
                     </h3>
